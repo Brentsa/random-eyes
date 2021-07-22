@@ -2,32 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 const Nav = () => {
 const menuItems = [
-    { title: 'menu 1', items: [
-        { menuitem: 'menu 1-1', link: 'link1'},
-        { menuitem: 'menu 1-2', link: 'link2'},
-        { menuitem: 'menu 1-3', link: 'link3'},
-        { menuitem: 'menu 1-4', link: 'link4'},
+    { title: 'Hair', items: [
+        { menuitem: 'Hair Equipment', link: 'link1'},
+        { menuitem: 'Hair Care', link: 'link2'},
+        { menuitem: 'Hair Tools', link: 'link3'},
+        { menuitem: 'Hair Accessories', link: 'link4'},
         ]
     },
-    { title: 'menu 2', items: [
-        { menuitem: 'menu 2-1', link: 'link1'},
-        { menuitem: 'menu 2-2', link: 'link2'},
-        { menuitem: 'menu 2-3', link: 'link3'},
-        { menuitem: 'menu 2-4', link: 'link4'},
+    { title: 'Spa', items: [
+        { menuitem: 'Skin Care', link: 'link1'},
+        { menuitem: 'Hand & Foot Care', link: 'link2'},
+        { menuitem: 'Waxing', link: 'link3'},
+        { menuitem: 'Spa Essentials', link: 'link4'},
         ]
     },
-    { title: 'menu 3', items: [
-        { menuitem: 'menu 3-1', link: 'link1'},
-        { menuitem: 'menu 3-2', link: 'link2'},
-        { menuitem: 'menu 3-3', link: 'link3'},
-        { menuitem: 'menu 3-4', link: 'link4'},
+    { title: 'Cosmetic', items: [
+        { menuitem: 'Face Make Up', link: 'link1'},
+        { menuitem: 'Face Care', link: 'link2'},
+        { menuitem: 'Lashes', link: 'link3'},
+        { menuitem: 'Accessories', link: 'link4'},
         ]
     },
-    { title: 'menu 4', items: [
-        { menuitem: 'menu 4-1', link: 'link1'},
-        { menuitem: 'menu 4-2', link: 'link2'},
-        { menuitem: 'menu 4-3', link: 'link3'},
-        { menuitem: 'menu 4-4', link: 'link4'},
+    { title: 'Barber', items: [
+        { menuitem: 'Clippers & Trimmers', link: 'link1'},
+        { menuitem: 'Barber Accessories', link: 'link2'},
+        { menuitem: 'Brushes & Comb', link: 'link3'},
+        { menuitem: 'Scissors & Blades', link: 'link4'},
         ]
     }
 ]

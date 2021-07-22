@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 1px solid black;
+  border: 1px solid rgb(19, 19, 18);
 }
 
 #root {
@@ -10,7 +10,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: darkcyan;
+  background-color: rgb(216, 233, 233);
 }
 
 .App {
@@ -27,7 +27,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: lightskyblue;
+  background-color: rgb(247, 247, 243);
 }
 nav {
   width: 100%;
@@ -36,8 +36,8 @@ nav {
 }
 
 .logo-wrapper {
-  width: 3rem;
-  height: 3rem;
+  width: 25rem;
+  height: 8rem;
   overflow: hidden;
 }
 .logo-wrapper img {
@@ -72,7 +72,7 @@ code {
 }
 
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #2f332f;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -104,6 +104,6 @@ code {
   display: block;
 }
 .dropdown:hover .dropbtn {
-  background-color: #3E8E41;
+  background-color: #cadbcb;
 }
 
