@@ -1,5 +1,5 @@
 import React from 'react';
-import eyes from '../../assets/images/randomeyes.JPG'
+import eyes from '../../assets/images/randomeyes.jpeg'
 
 const Logo = () => {
   return (
