@@ -2,7 +2,7 @@ import React from 'react';
 
 const AuthButtons = () => {
   return (
-    <div>
+    <div >
         <span>Login</span>
     </div>
   );

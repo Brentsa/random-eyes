@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 1px solid rgb(19, 19, 18);
+  /* border: 1px solid rgb(19, 19, 18); */
 }
 
 #root {
@@ -10,7 +10,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: rgb(216, 233, 233);
+  background-color: white;
 }
 
 .App {
@@ -20,6 +20,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  
 }
 
 header {
@@ -27,18 +29,20 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(247, 247, 243);
+  background-color: white;
+  
 }
 nav {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .logo-wrapper {
   width: 25rem;
-  height: 8rem;
+  height: 15rem;
   overflow: hidden;
+  
 }
 .logo-wrapper img {
   width: 100%;
@@ -49,8 +53,10 @@ nav {
   width: 100%;
   display: flex;
   justify-content: space-around;
+ 
 }
 main {
+  
   height: 100%;
   background-color: white;
   display: flex;
@@ -59,6 +65,14 @@ main {
 }
 
 body { 
+  background-image: url("../src/assets/images/AdobeStock_364554519.jpg@1200.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -72,12 +86,14 @@ code {
 }
 
 .dropbtn {
-  background-color: #2f332f;
+  background-color: #302904;
   color: white;
-  padding: 16px;
+  padding: 15px 30px 20px;
   font-size: 16px;
-  border: none;
-  cursor: pointer;
+  border: 1px solid rgb(241, 237, 237);
+  /* cursor: pointer; */
+  border-radius: 10px;
+  
 }
 .dropdown {
   position: relative;
@@ -104,6 +120,6 @@ code {
   display: block;
 }
 .dropdown:hover .dropbtn {
-  background-color: #cadbcb;
+  background-color: #afa670;
 }
 
