@@ -1,5 +1,5 @@
 import React from 'react';
-import eyes from '../../assets/images/AdobeStock_300838298 (1).jpg'
+import eyes from '../../assets/images/AdobeStock_300838298 (1).jpg@1.jpg'
 
 
 const Logo = () => {
