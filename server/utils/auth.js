@@ -1,5 +1,6 @@
 //import JSON web token library
 const jwt = require('jsonwebtoken');
+require( 'dotenv' ).config();
 
 //define the secret and expiration of the JWT
 const secret = process.env.JWTSECRET;
