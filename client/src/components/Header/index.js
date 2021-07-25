@@ -12,8 +12,7 @@ const Header = () => {
           <div className="menu-item">
           {/*<FaSearch/>*/}
           <AuthButtons />  
-          </div>
-                  
+          </div>   
       </div>
        <Nav />
        

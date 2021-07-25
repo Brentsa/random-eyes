@@ -7,10 +7,12 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
+
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
@@ -20,6 +22,7 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
@@ -37,21 +40,14 @@ function App() {
               <Route exact path= '/products/:productid' component={Product}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-
+              <Route exact path="/dashboard" component={Dashboard} />
             </Switch> 
-
           </main>
-          
-
-        
         </div>
-
       </Router>
     </ApolloProvider>
   
   );
 }
-
-
 
 export default App;
