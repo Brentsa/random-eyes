@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from '../Nav';
 import AuthButtons from '../Auth';
 import Logo from '../Logo';
 
@@ -8,10 +7,10 @@ const Header = () => {
     <header>
       <div className="header-title">
         <Logo/>
-          
-          <AuthButtons />
+          <div className="menu-item">
+            <AuthButtons />  
+          </div>   
       </div>
-       <Nav />
     </header>
   );
 };

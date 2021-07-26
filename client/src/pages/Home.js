@@ -1,9 +1,17 @@
 import React from 'react';
+import Login from '../components/Login';
+import Auth from '../utils/auth';
+import Gallery from '../components/Gallery';
+
 const Home = () => {
   return (
-    <h1>
-        Home Page
-    </h1>
+    <>
+    {Auth.loggedIn() ? (
+      <Gallery/>
+      ) : (
+      <Login />
+    )}
+    </>
   );
 };
 export default Home;

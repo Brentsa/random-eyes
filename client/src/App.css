@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  /* background-image: url("../src/assets/images/AdobeStock_364554519.jpg@1200.jpg");
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  width: 4000px;
+  height: 100vh; */
 }
 
 .App-logo {

@@ -2,6 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 const Nav = () => {
 const menuItems = [
+    { title: 'New Arrivals', items: [
+        { menuitem: 'Hair', link: 'link1'},
+        { menuitem: 'Spa', link: 'link2'},
+        { menuitem: 'Cosmetic', link: 'link3'},
+        { menuitem: 'Accessories', link: 'link4'},
+        ]
+    },
+    { title: 'Promotions', items: [
+        { menuitem: 'Equipment', link: 'link1'},
+        { menuitem: 'Hair', link: 'link2'},
+        { menuitem: 'Spa', link: 'link3'},
+        { menuitem: 'Barber', link: 'link4'},
+        ]
+    },
     { title: 'Hair', items: [
         { menuitem: 'Hair Equipment', link: 'link1'},
         { menuitem: 'Hair Care', link: 'link2'},
@@ -11,9 +25,14 @@ const menuItems = [
     },
     { title: 'Spa', items: [
         { menuitem: 'Skin Care', link: 'link1'},
-        { menuitem: 'Hand & Foot Care', link: 'link2'},
-        { menuitem: 'Waxing', link: 'link3'},
+        { menuitem: 'Hand & Foot Care', link: 'link2'},        
         { menuitem: 'Spa Essentials', link: 'link4'},
+        ]
+    },
+    { title: 'Waxing', items: [
+        { menuitem: 'Equipment', link: 'link1'},
+        { menuitem: 'Hard & Soft Wax', link: 'link2'},        
+        { menuitem: 'Waxing Essentials', link: 'link4'},
         ]
     },
     { title: 'Cosmetic', items: [
@@ -28,6 +47,14 @@ const menuItems = [
         { menuitem: 'Barber Accessories', link: 'link2'},
         { menuitem: 'Brushes & Comb', link: 'link3'},
         { menuitem: 'Scissors & Blades', link: 'link4'},
+        ]
+    },
+    { title: 'Brand', items: [
+        { menuitem: 'BabylissPro', link: 'link1'},
+        { menuitem: 'Wahl', link: 'link2'},
+        { menuitem: 'Caronlab', link: 'link3'},
+        { menuitem: 'Sorme', link: 'link4'},
+        
         ]
     }
 ]
