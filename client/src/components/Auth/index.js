@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import { FaShoppingCart } from 'react-icons/fa'
+import { FiLogOut } from 'react-icons/fi'
 
 const AuthButtons = () => {
 
@@ -13,15 +15,14 @@ const AuthButtons = () => {
     <nav>
         {Auth.loggedIn() ? (
           <>
-            <Link to="/profile">Profile</Link>
-            <Link to="/dashboard">Dashboard</Link>
-            <a href="/" onClick={logout}>
-              Logout
-            </a>
+            <Link to="/cart"><FaShoppingCart /></Link>
+            <Link to="/" onClick={logout}>
+              <FiLogOut />
+            </Link>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
+            {/* <Link to="/login">Login</Link> */}
             <Link to="/signup">Signup</Link>
             <Link to="/dashboard">Dashboard</Link>
           </>
