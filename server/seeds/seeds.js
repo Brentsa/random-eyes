@@ -60,6 +60,30 @@ async function seedProducts(categories){
             price: 699.99,
             image: 'gpu.jpg'
         },
+        {
+            name: 'Shoes',
+            description: 'Modern comfort meets retro style — this men’s Nike Air Max has everything you need in your shoe rotation. The upper provides durable support and a premium look while the extra cushioning in the collar gives extra comfort where you need it the most. And you can’t forget about the Max Air technology! This innovative air gives the shoe a perfect amount of cushioning and shows off that classic style everyone loves.',
+            category: categories[3]._id,
+            price: 249.99,
+            image: 'airmax.jpg'
+        },
+        {
+            name: 'COD Controller',
+            description: 'Control your firearm with this controller',
+            category: categories[3]._id,
+            price: 150.00,
+            image: 'codcontroller.jpg'
+        },
+        {
+            name: 'Eiffel tower',
+            description: 'take your better half to Paris',
+            category: categories[7]._id,
+            price: 150.00,
+            image: 'eiffeltower.jpg'
+        },
+
+        
+        
 
         //add more products here, place image files in client/src/assets/images/Product Images. I used unsplash and downloaded low res pics.
     ]);
