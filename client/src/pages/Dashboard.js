@@ -63,7 +63,7 @@ function Dashboard(){
         <div className="container">
             <div className={`${classes.root} ${classes.backgroundPurple}`}>
                 <Typography variant="h2" component="h2" >
-                    Welcome To Your Dashboard User!
+                    Welcome To Your Dashboard {Auth.getProfile().data.username}!
                 </Typography>
             </div>
             <Grid
