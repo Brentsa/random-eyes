@@ -78,17 +78,30 @@ async function seedProducts(categories){
             name: 'Eiffel tower',
             description: 'take your better half to Paris',
             category: categories[7]._id,
-            price: 150.00,
+            price: 850.00,
             image: 'eiffeltower.jpg'
         },
         {
             name: 'Headphones',
             description: 'Something you need for avoiding daily nuisance',
             category: categories[0]._id,
-            price: 150.00,
+            price: 75.00,
             image: 'headphones.jpg'
         },
-        
+        {
+            name: 'Lights',
+            description: 'Beautiful ceiling lights for better ambience',
+            category: categories[3]._id,
+            price: 50.00,
+            image: 'lights.jpg'
+        },
+        {
+            name: 'Statue',
+            description: 'Put his face in your house to conquer your own house',
+            category: categories[3]._id,
+            price: 65.00,
+            image: 'statue.jpg'
+        },
         
 
         //add more products here, place image files in client/src/assets/images/Product Images. I used unsplash and downloaded low res pics.
