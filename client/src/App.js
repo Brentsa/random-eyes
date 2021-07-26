@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Product from './pages/Product';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Login from './pages/Login';
+import Cart from './pages/Cart';
 import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
@@ -35,7 +35,7 @@ function App() {
             <Switch>
               <Route exact path= '/' component={Home}/> 
               <Route exact path= '/products/:productid' component={Product}/>
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/cart" component={Cart} />
               <Route exact path="/signup" component={Signup} />
 
             </Switch> 
