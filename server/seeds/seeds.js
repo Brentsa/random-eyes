@@ -81,7 +81,13 @@ async function seedProducts(categories){
             price: 150.00,
             image: 'eiffeltower.jpg'
         },
-
+        {
+            name: 'Headphones',
+            description: 'Something you need for avoiding daily nuisance',
+            category: categories[0]._id,
+            price: 150.00,
+            image: 'headphones.jpg'
+        },
         
         
 
