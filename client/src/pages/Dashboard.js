@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_ALL_PRODUCTS } from '../utils/queries';
+
+//Material UI imports
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import ProductCard from '../components/ProductCard';
 import Grid from '@material-ui/core/Grid';
+
 
 const useStyles = makeStyles({
     root: {
@@ -20,6 +26,39 @@ function Dashboard(){
 
     const classes = useStyles();
 
+    const {loading, data} = useQuery(QUERY_ALL_PRODUCTS);
+    const [currentProduct, setCurrentProduct] = useState({
+        name: 'Smartphone',
+        description: 'Top tier smartphone for you to connect with the world',
+        category: "",
+        price: 649.99,
+        image: 'smartphone.jpg'
+    });
+
+    useEffect(()=>{
+        if(data){
+            const {products} = data;
+            const randomProduct = Math.floor(Math.random() * products.length);
+            setCurrentProduct(products[randomProduct]);
+        }
+    }, [loading, data]);
+
+    function loadNewProduct(){
+        if(data){
+            const {products} = data;
+            const randomProduct = Math.floor(Math.random() * products.length);
+            setCurrentProduct(products[randomProduct]);
+        }
+    }
+
+    if(!Auth.loggedIn()){
+        return <h1>Please login to begin viewing products!</h1>
+    }
+
+    if(loading){
+        return <h1>Loading...</h1>
+    }
+
     return (
         <div className="container">
             <div className={`${classes.root} ${classes.backgroundPurple}`}>
@@ -34,7 +73,7 @@ function Dashboard(){
                 alignItems="center"
                 className={classes.padding}
             >
-                <ProductCard/>
+                <ProductCard currentProduct={currentProduct} loadNewProduct={loadNewProduct}/>
             </Grid>
         </div>
     );

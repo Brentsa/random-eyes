@@ -4,29 +4,36 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '', address: '' });
+
+  const [formState, setFormState] = useState({ username: '', email: '', address: '', password: '' });
   const [addUser, { error }] = useMutation(ADD_USER);
+
   // update state based on form input changes
-  const handleChange = (event) => {
+  const handleChange = async event => {
     const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+
+    await setFormState({ ...formState, [name]: value });
   };
+
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
     // use try/catch instead of promises to handle errors
+
+    console.log(formState);
+
     try {
       const { data } = await addUser({
         variables: { ...formState }
       });
+
       Auth.login(data.addUser.token);
-    } catch (e) {
+    } 
+    catch (e) {
       console.error(e);
     }
   };
+
   return (
         <div className="form-container">
           <h4>Sign Up</h4>
@@ -48,19 +55,19 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <input
-                placeholder='*****'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <input
                 placeholder='Your address'
                 name='address'
                 type='address'
                 id='address'
                 value={formState.address}
+                onChange={handleChange}
+              />
+              <input
+                placeholder='*****'
+                name='password'
+                type='password'
+                id='password'
+                value={formState.password}
                 onChange={handleChange}
               />
               <button type='submit'>

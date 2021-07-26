@@ -14,8 +14,6 @@ const Header = () => {
           <AuthButtons />  
           </div>   
       </div>
-       <Nav />
-       
     </header>
   );
 };

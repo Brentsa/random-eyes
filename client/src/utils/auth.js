@@ -5,7 +5,7 @@ class AuthService
     //set the token to local storage and reroute to main page
     login(idToken){
         localStorage.setItem('id_token', idToken);
-        return window.location.assign('/');
+        return window.location.assign('/dashboard');
     }
     
     //remove the token from local storage

@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+
 const AuthButtons = () => {
+
   const logout = event => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
     <nav>
         {Auth.loggedIn() ? (
           <>
             <Link to="/profile">Profile</Link>
+            <Link to="/dashboard">Dashboard</Link>
             <a href="/" onClick={logout}>
               Logout
             </a>
@@ -22,7 +26,7 @@ const AuthButtons = () => {
             <Link to="/dashboard">Dashboard</Link>
           </>
         )}
-      </nav>
+    </nav>
   );
 };
 export default AuthButtons;
