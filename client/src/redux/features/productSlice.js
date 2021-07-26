@@ -7,7 +7,17 @@ export const productSlice = createSlice({
 
     //initial state used
     initialState: {
-        products: []
+        products: [],
+        currentProduct: {
+            name: 'Smartphone',
+            description: 'Top tier smartphone for you to connect with the world',
+            category: {
+                _id: "jsdlfjslfjsljdf",
+                name: "technology"
+            },
+            price: 649.99,
+            image: 'smartphone.jpg'
+        }
     },
 
     //reducers that affect state
@@ -17,12 +27,19 @@ export const productSlice = createSlice({
             return {
                 products: [...action.payload.products]
             }
+        },
+        //changes the active product to be displayed
+        set_current_product(state, action){
+            return {
+                ...state,
+                currentProduct: action.payload.product
+            }
         }
     }
 });
 
 //export action functions for use within state dispatch
-export const {update_products} = productSlice.actions;
+export const {update_products, set_current_product} = productSlice.actions;
 
 //export the reducers for the store
 export default productSlice.reducer;
