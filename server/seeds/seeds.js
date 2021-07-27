@@ -119,16 +119,23 @@ async function seedProducts(categories){
         {
             name: 'Volleyball Net',
             description: 'Summer and volleyball goes hand in hand. Its time to buy your own net',
-            category: categories[3]._id,
+            category: categories[6]._id,
             price: 29.99,
             image: 'volleyballnet.jpg'
         },
         {
             name: 'Tennis Rackey',
             description: 'Roger Federers Wilson racket and summer days will be one of the best decisions for the season. Its on sale.',
-            category: categories[3]._id,
+            category: categories[6]._id,
             price: 87.00,
             image: 'tennisracket.jpg'
+        },
+        {
+            name: 'Spikeball',
+            description: 'Havent tried spike ball? You can play it anywhere with anyone.',
+            category: categories[6]._id,
+            price: 299.99,
+            image: 'spikeball.jpg'
         },
         
 
