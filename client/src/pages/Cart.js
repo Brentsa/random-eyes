@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import CartItem from '../components/CartItem';
 import Auth from '../utils/auth';
 import {loadStripe} from '@stripe/stripe-js';
-import {Elements, useStripe} from '@stripe/react-stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../utils/queries';
 
@@ -22,7 +21,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const {cart} = useSelector(state => state.cartState);
 
-  const [getCheckout, {data}] = useLazyQuery(QUERY_CHECKOUT);
+  const [getCheckout, {data, loading}] = useLazyQuery(QUERY_CHECKOUT);
 
   //called when the clear cart button is clicked
   function clearCart(){
@@ -31,7 +30,7 @@ const Cart = () => {
 
   //calculate the subtotal of the cart array
   function calculateSubtotal(cartArray){
-    return cartArray.reduce((total, item) => total + item.price, 0);
+    return cartArray.reduce((total, item) => total + item.price, 0).toFixed(2);
   }
 
   function submitCheckout(){
@@ -54,6 +53,10 @@ const Cart = () => {
       });
     }
   }, [data]);
+
+  if(loading){
+    return <h2>Taking you to checkout!</h2>
+  }
 
   return (
     <>
