@@ -36,10 +36,10 @@ function ProductCard({currentProduct, loadNewProduct}){
             />
 
             <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h3">
                     {currentProduct.name}
                 </Typography>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h3">
                     {currentProduct.category.name} - ${currentProduct.price}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">

@@ -61,15 +61,16 @@ function Dashboard(){
 
     return (
         <div className="container">
-            <div className={`${classes.root} ${classes.backgroundPurple}`}>
-                <Typography variant="h2" component="h2" >
-                    Welcome To Your Dashboard {Auth.getProfile().data.username}!
+            <div className={`${classes.root} ${classes.backgroundBlue}`}>
+                <Typography variant='inherit' component="h2" >
+                    Welcome Back {Auth.getProfile().data.username}. Happy Shopping!
                 </Typography>
             </div>
             <Grid
                 container
                 direction="row"
                 justifyContent="space-around"
+                padding="1em"
                 alignItems="center"
                 className={classes.padding}
             >
