@@ -1,25 +1,45 @@
 import React from 'react';
 import CartItem from '../components/CartItem';
+import Auth from '../utils/auth';
+//******************* REDUX CONTENT
+import { useSelector, useDispatch } from 'react-redux';
+import { clear_cart } from '../redux/features/cartSlice';
+
 const Cart = () => {
-  const cartItems = [
-    { picture: 'https://picsum.photos/200', title: 'test title 1', description: 'test desc 1', cost: 123 },
-    { picture: 'https://picsum.photos/201', title: 'test title 2', description: 'test desc 2', cost: 123 },
-    { picture: 'https://picsum.photos/202', title: 'test title 3', description: 'test desc 3', cost: 123 },
-    { picture: 'https://picsum.photos/203', title: 'test title 4', description: 'test desc 4', cost: 123 },
-    { picture: 'https://picsum.photos/204', title: 'test title 5', description: 'test desc 5', cost: 123 }
-  ]
+
+  //define redux state management
+  const dispatch = useDispatch();
+  const {cart} = useSelector(state => state.cartState);
+
+  //called when the clear cart button is clicked
+  function clearCart(){
+    return dispatch(clear_cart());
+  }
+
+  //calculate the subtotal of the cart array
+  function calculateSubtotal(cartArray){
+    return cartArray.reduce((total, item) => total + item.price, 0);
+  }
+
   return (
     <>
-    <div className="cart-user">Hello User</div>
-    <div className="cart-buttons">
-      <span>Subtotal</span>
-      <span>Checkout</span>
-    </div>
-    <ul className="cart-list">
-    {
-      cartItems.map( item => <CartItem item={ item }/> )
-    }
-    </ul>
+      <div className="cart-user">Hello {Auth.getProfile().data.username}</div>
+      <div className="cart-buttons">
+        {cart.length ? (
+          <>
+            <span>Subtotal: ${calculateSubtotal(cart)}</span>
+            <button>Checkout</button>
+            <button onClick={clearCart}>Clear Cart</button> 
+          </>
+          ) : (
+            <h2>There are no items in your cart!</h2>
+          )}
+      </div>
+      <ul className="cart-list">
+        {
+          cart.map( item => <CartItem item={item} key={item._id}/> )
+        }
+      </ul>
     </>
   );
 };
