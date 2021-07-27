@@ -62,7 +62,7 @@ async function seedProducts(categories){
         },
         {
             name: 'Shoes',
-            description: 'Modern comfort meets retro style — this men’s Nike Air Max has everything you need in your shoe rotation. The upper provides durable support and a premium look while the extra cushioning in the collar gives extra comfort where you need it the most. And you can’t forget about the Max Air technology! This innovative air gives the shoe a perfect amount of cushioning and shows off that classic style everyone loves.',
+            description: 'Modern comfort meets retro style — this men’s Nike Air Max has everything you need in your shoe rotation. The upper provides durable support and a premium look while the extra cushioning in the collar gives extra comfort where you need it the most.',
             category: categories[3]._id,
             price: 249.99,
             image: 'airmax.jpg'

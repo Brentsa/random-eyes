@@ -1,12 +1,11 @@
 import React from 'react';
 import eyes from '../../assets/images/random2.png'
-
+import { Link } from 'react-router-dom';
 
 const Logo = () => {
   return (
     <div className='logo-wrapper'>
-      <a href="/"><img src={eyes} alt="test"/></a>
-      
+      <Link to="/dashboard"><img src={eyes} alt="logo"/></Link>
       
       
     </div>
