@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Product, Category, User } = require('../models');
+const { Product, Category, User, Order } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -59,55 +59,60 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    //***** Order functionality not needed for now.
-    // order: async (parent, { _id }, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id).populate({
-    //       path: 'orders.products',
-    //       populate: 'category'
-    //     });
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.products',
+          populate: 'category'
+        });
 
-    //     return user.orders.id(_id);
-    //   }
+        return user.orders.id(_id);
+      }
 
-    //   throw new AuthenticationError('Not logged in');
-    // },
+      throw new AuthenticationError('Not logged in');
+    },
 
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
+
+      const order = new Order({products: args.products});
+      const {products} = await order.populate('products').execPopulate();
+
       const line_items = [];
 
-      const { products } = await order.populate('products').execPopulate();
-
-      for (let i = 0; i < products.length; i++) {
+      for(let i = 0; i < products.length; i++){
+        //generate a product id
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
           images: [`${url}/images/${products[i].image}`]
         });
 
+        //generate a price id using the product id
         const price = await stripe.prices.create({
           product: product.id,
           unit_amount: products[i].price * 100,
-          currency: 'usd',
+          currency: 'cad'
         });
 
+        //add price id to the line items array
         line_items.push({
           price: price.id,
           quantity: 1
         });
       }
 
+      //generate a session id based on the line items
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`
+        cancel_url: `${url}/cancel` 
       });
 
-      return { session: session.id };
+      //only need a session id
+      return {session: session.id};
     }
 
   },
@@ -121,19 +126,18 @@ const resolvers = {
       return { token, user };
     },
 
-    //***** Order functionality not needed for now.
-    // addOrder: async (parent, { products }, context) => {
-    //   console.log(context);
-    //   if (context.user) {
-    //     const order = new Order({ products });
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
+      if (context.user) {
+        const order = new Order({ products });
 
-    //     await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
-    //     return order;
-    //   }
+        return order;
+      }
 
-    //   throw new AuthenticationError('Not logged in');
-    // },
+      throw new AuthenticationError('Not logged in');
+    },
 
     updateUser: async (parent, args, context) => {
       if (context.user) {

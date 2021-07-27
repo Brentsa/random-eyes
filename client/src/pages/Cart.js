@@ -1,15 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CartItem from '../components/CartItem';
 import Auth from '../utils/auth';
+import {loadStripe} from '@stripe/stripe-js';
+import {Elements, useStripe} from '@stripe/react-stripe-js';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_CHECKOUT } from '../utils/queries';
+
 //******************* REDUX CONTENT
 import { useSelector, useDispatch } from 'react-redux';
 import { clear_cart } from '../redux/features/cartSlice';
 
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
 const Cart = () => {
+
+  // const stripe = useStripe();
+  // const elements = useElements();
 
   //define redux state management
   const dispatch = useDispatch();
   const {cart} = useSelector(state => state.cartState);
+
+  const [getCheckout, {data}] = useLazyQuery(QUERY_CHECKOUT);
 
   //called when the clear cart button is clicked
   function clearCart(){
@@ -21,6 +34,27 @@ const Cart = () => {
     return cartArray.reduce((total, item) => total + item.price, 0);
   }
 
+  function submitCheckout(){
+    const productIds = [];
+
+    cart.forEach(item => {
+        // for(let i = 0; i < item.purchaseQuantity; i++){
+        //     productIds.push(item._id);
+        // }
+        productIds.push(item._id);
+    })
+
+    getCheckout({variables: {products: productIds}});
+  }
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
   return (
     <>
       <div className="cart-user">Hello {Auth.getProfile().data.username}</div>
@@ -28,7 +62,7 @@ const Cart = () => {
         {cart.length ? (
           <>
             <span>Subtotal: ${calculateSubtotal(cart)}</span>
-            <button>Checkout</button>
+            <button onClick={submitCheckout}>Checkout</button>
             <button onClick={clearCart}>Clear Cart</button> 
           </>
           ) : (
