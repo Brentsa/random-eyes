@@ -137,6 +137,14 @@ async function seedProducts(categories){
             price: 299.99,
             image: 'spikeball.jpg'
         },
+        {
+            name: 'Edhen Milano',
+            description: 'These semi-formal shoes can be worn anywhere to any occasion',
+            category: categories[2]._id,
+            price: 899.99,
+            image: 'edhenmilanoshoes.jpg'
+        },
+
         
 
         //add more products here, place image files in client/src/assets/images/Product Images. I used unsplash and downloaded low res pics.
