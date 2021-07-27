@@ -1,14 +1,17 @@
 import React from 'react';
 import Login from '../components/Login';
+import { Link } from 'react-router-dom';
+import Auth from '../utils/auth'
+import { GiBoltEye } from "react-icons/gi"
 
 function Home(){
   return (
     <>
       <div>
         <h2>Welcome to Randomeyes.</h2>
-        <p>Log in below to start shopping!</p>
+        {Auth.loggedIn() ? (<p>Click the eye below to start shopping!</p>):(<p>Create an account or log in below to start shopping!</p>)}
       </div>
-      <Login/>
+        {Auth.loggedIn() ? (<Link to="/dashboard" style={{fontSize: 120}}><GiBoltEye/></Link>):(<Login/>)}
       <div>
         <h3>
           Randomeyes is a modern e-commerce application with a novel twist on purchasing products. 
