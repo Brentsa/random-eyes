@@ -102,6 +102,20 @@ async function seedProducts(categories){
             price: 65.00,
             image: 'statue.jpg'
         },
+        {
+            name: 'Table',
+            description: 'minimilistic table with wire organization ports. It is for someone who does not like clutter',
+            category: categories[3]._id,
+            price: 299.99,
+            image: 'table.jpg'
+        },
+        {
+            name: 'Bed',
+            description: 'Burma Teak frame with extra soft and comfortable mattress',
+            category: categories[3]._id,
+            price: 2999.99,
+            image: 'table.jpg'
+        },
         
 
         //add more products here, place image files in client/src/assets/images/Product Images. I used unsplash and downloaded low res pics.
