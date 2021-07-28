@@ -47,7 +47,7 @@ function Dashboard(){
 
     //if the user isnt logged in then they cannot view the products
     if(!Auth.loggedIn()){
-        return <h1>Please login to begin viewing products!</h1>
+        return <h1 id="home-info">Please login to begin viewing products!</h1>
     }
 
     //if the products are loading from the backend then show loading...

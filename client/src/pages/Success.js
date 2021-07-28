@@ -7,7 +7,7 @@ function Success(){
     }, 10000)
 
     return (
-        <div>
+        <div id="home-info">
             <div>
                 <h1>Success!</h1>
                 <h2>Thank you for your purchase!</h2>
