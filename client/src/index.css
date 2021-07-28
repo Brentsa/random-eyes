@@ -221,6 +221,11 @@ code {
   background-color: #afa670;
 }
 
+
+p {
+  margin: 15px 0;
+}
+
 .welcome{
   display: flex;
   flex-direction: column;
@@ -266,6 +271,7 @@ code {
   
  
 }
+
 #sign-up-form label {
   flex: 1;
   flex-shrink: 0;
@@ -283,9 +289,8 @@ code {
   border: none;
   border-radius: 10px;
   border: 1px solid rgb(22, 22, 22);
-  
-  
 }
+
 #form-container textarea {
   resize: none;
 }
@@ -305,6 +310,7 @@ code {
   color: #0f0f0f;
   
 }
+
 #home-info{
   padding: 0px 20px 100px;
   background-color: rgb(204, 199, 191);

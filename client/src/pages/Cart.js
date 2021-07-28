@@ -5,17 +5,28 @@ import {loadStripe} from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../utils/queries';
 
+//Material UI imports
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 //******************* REDUX CONTENT
 import { useSelector, useDispatch } from 'react-redux';
 import { clear_cart } from '../redux/features/cartSlice';
 
-
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+//custom styles that can be set in JS for Material-UI
+const useStyles = makeStyles({
+  backgroundPurple: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #800080 90%)',
+      padding: 10,
+      marginBottom: 10
+  }
+});
 
 const Cart = () => {
 
-  // const stripe = useStripe();
-  // const elements = useElements();
+  const classes = useStyles();
 
   //define redux state management
   const dispatch = useDispatch();
@@ -60,16 +71,16 @@ const Cart = () => {
 
   return (
     <>
-      <div className="cart-user">Hello {Auth.getProfile().data.username}</div>
+      <h1 className={`cart-user ${classes.backgroundPurple}`}>Welcome to your Cart {Auth.getProfile().data.username}</h1>
       <div className="cart-buttons">
         {cart.length ? (
           <>
-            <span>Subtotal: ${calculateSubtotal(cart)}</span>
-            <button onClick={submitCheckout}>Checkout</button>
-            <button onClick={clearCart}>Clear Cart</button> 
+            <span className={classes.backgroundPurple}><h2>Subtotal: ${calculateSubtotal(cart)}</h2></span>
+            <Button variant="contained" onClick={submitCheckout}>Checkout</Button>
+            <Button variant="contained" onClick={clearCart}>Clear Cart</Button>
           </>
           ) : (
-            <h2>There are no items in your cart!</h2>
+            <h2 className={classes.backgroundPurple}>There are no items in your cart!</h2>
           )}
       </div>
       <ul className="cart-list">
