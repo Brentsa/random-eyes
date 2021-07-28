@@ -22,10 +22,11 @@ const useStyles = makeStyles({
   media: {
     maxWidth: "100%",
     height: 600,
+    borderRadius: 6
   },
   padding: {
     padding: 10,
-  },
+  }
 });
 
 //Product Card component
@@ -71,11 +72,14 @@ function ProductCard(){
     return (
         <Card className={classes.root}>
 
-            <CardMedia
-                className={classes.media}
-                image={require(`../../assets/images/Product Images/${currentProduct.image}`).default}
-                title={currentProduct.name}
-            />
+            <div className={classes.padding}>
+                <CardMedia
+                    className={classes.media}
+                    image={require(`../../assets/images/Product Images/${currentProduct.image}`).default}
+                    title={currentProduct.name}
+                />
+            </div>
+            
 
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
