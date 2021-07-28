@@ -7,9 +7,9 @@ import { GiBoltEye } from "react-icons/gi"
 function Home(){
   return (
     <>
-      <div>
+      <div id="home-info">
         <div className="welcome">
-          <h2>Welcome to Randomeyes.</h2>
+          <h2 className="welcome-to">Welcome to Randomeyes.</h2>
           {Auth.loggedIn() ? (<p>Click the eye below to start shopping!</p>):(<p>Create an account or log in below to start shopping!</p>)}
         </div>
         <div className="login-home">

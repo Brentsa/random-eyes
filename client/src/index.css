@@ -164,7 +164,7 @@ main h1{
 }
 
 body {
-  background-image: url("../src/assets/images/homebackground.jpg@1.jpg");
+  background-image: url("../src/assets/images/newbackground.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -284,6 +284,7 @@ code {
   border-radius: 10px;
   border: 1px solid rgb(22, 22, 22);
   
+  
 }
 #form-container textarea {
   resize: none;
@@ -300,15 +301,24 @@ code {
 #form-submit:hover{
   background-color: rgb(158, 148, 123);
 }
-
+.welcome-to{
+  color: #0f0f0f;
+  
+}
+#home-info{
+  padding: 0px 20px 100px;
+  background-color: rgb(204, 199, 191);
+  border-radius: 10px;
+  opacity: 90%;
+}
 
 .welcome-info{
   display: flex;
   flex-direction: column;
-  padding: 20px 30px 20px;
+  padding: 30px 30px 30px;
   font-size: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: rgb(246, 248, 240);
+  background-color: rgb(246, 246, 237);
   border-radius: 10px;
   width: 100%;
   display: flex;
@@ -334,7 +344,7 @@ code {
   background-color: rgb(158, 148, 123);
 }
 #create-account{
-  padding: 10px 10px 10px;
+  padding: 10px 20px 20px;
   background-color: rgb(241, 231, 231);
   color: rgb(26, 23, 8);
   border-radius: 10px;
