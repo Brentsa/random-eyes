@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Success from './pages/Success';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

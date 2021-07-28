@@ -35,9 +35,9 @@ const Login = () => {
 
   return (
     <div className="form-container">
-      <h4>Login</h4>
-        <form onSubmit={handleFormSubmit}>
-          <input
+      {/* <h4>Login</h4> */}
+        <form onSubmit={handleFormSubmit} >
+          <input className="log-in-in-put"
             placeholder='Your email'
             name='email'
             type='email'
@@ -45,15 +45,15 @@ const Login = () => {
             value={formState.email}
             onChange={handleChange}
           />
-          <input
-            placeholder='******'
+          <input className="log-in-in-put"
+            placeholder='Your Password'
             name='password'
             type='password'
             id='password'
             value={formState.password}
             onChange={handleChange}
           />
-          <button type='submit'>
+          <button type='submit' id="log-in-in-put-submit">
             Submit
           </button>
           {error && <div>Login failed</div>}

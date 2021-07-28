@@ -8,14 +8,18 @@ function Home(){
   return (
     <>
       <div>
-        <h2>Welcome to Randomeyes.</h2>
-        {Auth.loggedIn() ? (<p>Click the eye below to start shopping!</p>):(<p>Create an account or log in below to start shopping!</p>)}
-      </div>
-        {Auth.loggedIn() ? (<Link to="/dashboard" style={{fontSize: 120}}><GiBoltEye/></Link>):(<Login/>)}
-      <div>
-        <h3>
-          Randomeyes is a modern e-commerce application with a novel twist on purchasing products. 
+        <div className="welcome">
+          <h2>Welcome to Randomeyes.</h2>
+          {Auth.loggedIn() ? (<p>Click the eye below to start shopping!</p>):(<p>Create an account or log in below to start shopping!</p>)}
+        </div>
+        <div className="login-home">
+          {Auth.loggedIn() ? (<Link to="/dashboard" style={{fontSize: 120}}><GiBoltEye/></Link>):(<Login/>)}
+        </div>
+        
+        <h3 className="welcome1">
+          Randomeyes is a modern e-commerce application with a novel twist on purchasing. 
         </h3>
+        <div className="welcome-info">
         <p>
           Consumers are faced with an infinite amount of product choices in 2021. Searching for the simplest of items online can yield hundreds of results. 
           Astronomical variation between prices, aggregate reviews that are biased, and product knock-offs all plague the modern online shopping experience. 
@@ -28,6 +32,9 @@ function Home(){
           You never know what hidden gems you might find on Randomeyes but your enjoyment will always be guaranteed. 
         </p>
       </div>
+      </div>
+      
+      
     </>
   );
 };

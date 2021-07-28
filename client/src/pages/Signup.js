@@ -35,10 +35,10 @@ const Signup = () => {
   };
 
   return (
-        <div className="form-container">
-          <h4>Sign Up</h4>
-            <form onSubmit={handleFormSubmit}>
-              <input
+        <div id="sign-up-form-cont" className="sign-up-form">
+          
+            <form onSubmit={handleFormSubmit} id="sign-up-form" >
+              <input className="sign-up-form" 
                 placeholder='Your username'
                 name='username'
                 type='username'
@@ -46,7 +46,7 @@ const Signup = () => {
                 value={formState.username}
                 onChange={handleChange}
               />
-              <input
+              <input className="sign-up-form"
                 placeholder='Your email'
                 name='email'
                 type='email'
@@ -54,7 +54,7 @@ const Signup = () => {
                 value={formState.email}
                 onChange={handleChange}
               />
-              <input
+              <input className="sign-up-form"
                 placeholder='Your address'
                 name='address'
                 type='address'
@@ -62,15 +62,15 @@ const Signup = () => {
                 value={formState.address}
                 onChange={handleChange}
               />
-              <input
-                placeholder='*****'
+              <input className="sign-up-form"
+                placeholder='Your password'
                 name='password'
                 type='password'
                 id='password'
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button type='submit'>
+              <button type='submit' id="form-submit">
                 Submit
               </button>
               {error && <div>Sign up failed</div>}
