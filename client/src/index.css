@@ -308,7 +308,7 @@ code {
   padding: 20px 30px 20px;
   font-size: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: rgb(218, 218, 212);
+  background-color: rgb(246, 248, 240);
   border-radius: 10px;
   width: 100%;
   display: flex;
@@ -335,8 +335,8 @@ code {
 }
 #create-account{
   padding: 10px 10px 10px;
-  background-color: rgb(243, 243, 236);
-  color: black;
+  background-color: rgb(241, 231, 231);
+  color: rgb(26, 23, 8);
   border-radius: 10px;
 }
 #create-account:hover{
