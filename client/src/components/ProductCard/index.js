@@ -7,8 +7,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+//import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import BackspaceIcon from '@material-ui/icons/Backspace';
+import AddToCartModal from '../Modal';
 //******************* REDUX CONTENT
 import { useSelector, useDispatch } from 'react-redux';
 import { set_current_product } from '../../redux/features/productSlice';
@@ -103,9 +104,10 @@ function ProductCard(){
                 <Button size="large" variant="outlined" color="primary" startIcon={<BackspaceIcon/>} onClick={loadNewProduct}>
                     Show New Product
                 </Button>
-                <Button size="large" variant="outlined" color="primary" startIcon={<AddShoppingCartIcon/>} onClick={addToCart}>
+                {/* <Button size="large" variant="outlined" color="primary" startIcon={<AddShoppingCartIcon/>} onClick={addToCart}>
                     Add Product to Cart
-                </Button>
+                </Button> */}
+                <AddToCartModal addToCart={addToCart} productName={currentProduct.name}/>
             </Grid>
             
         </Card>
