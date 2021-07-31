@@ -206,7 +206,7 @@ async function seedProducts(categories){
             description: 'Toast your bread and bagels with this aluminum toaster. It is fully programmable and will ensure your bread is cooked to perfection',
             category: categories[4]._id,
             price: 119.99,
-            image: 'toaster.jpg'
+            image: 'Toaster.jpg'
         },
         {
             name: 'Coffee Beans',

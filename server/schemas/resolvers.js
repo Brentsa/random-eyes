@@ -80,26 +80,31 @@ const resolvers = {
 
       const line_items = [];
 
-      for(let i = 0; i < products.length; i++){
-        //generate a product id
-        const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
-        });
+      try{
+        for(let i = 0; i < products.length; i++){
+          //generate a product id
+          const product = await stripe.products.create({
+            name: products[i].name,
+            description: products[i].description,
+            //images: [`${url}/images/${products[i].image}`]
+          });
 
-        //generate a price id using the product id
-        const price = await stripe.prices.create({
-          product: product.id,
-          unit_amount: products[i].price * 100,
-          currency: 'cad'
-        });
+          //generate a price id using the product id
+          const price = await stripe.prices.create({
+            product: product.id,
+            unit_amount: (products[i].price * 100).toFixed(0),
+            currency: 'CAD'
+          });
 
-        //add price id to the line items array
-        line_items.push({
-          price: price.id,
-          quantity: 1
-        });
+          //add price id to the line items array
+          line_items.push({
+            price: price.id,
+            quantity: 1
+          });
+        }
+      }
+      catch(err){
+        console.log(err);
       }
 
       //generate a session id based on the line items
