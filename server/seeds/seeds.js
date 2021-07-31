@@ -105,7 +105,7 @@ async function seedProducts(categories){
         },
         {
             name: 'Table',
-            description: 'minimilistic table with wire organization ports. It is for someone who does not like clutter',
+            description: 'minimalistic table with wire organization ports. It is for someone who does not like clutter',
             category: categories[3]._id,
             price: 299.99,
             image: 'table.jpg'
