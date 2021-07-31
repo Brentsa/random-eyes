@@ -2,7 +2,7 @@ import React from 'react';
 import Login from '../components/Login';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth'
-import { GiBoltEye } from "react-icons/gi"
+import { FaEye } from "react-icons/fa"
 
 function Home(){
   return (
@@ -13,7 +13,7 @@ function Home(){
           {Auth.loggedIn() ? (<p>Click the eye below to start shopping!</p>):(<p>Create an account or log in below to start shopping!</p>)}
         </div>
         <div className="login-home">
-          {Auth.loggedIn() ? (<Link to="/dashboard" style={{fontSize: 120}}><GiBoltEye/></Link>):(<Login/>)}
+          {Auth.loggedIn() ? (<Link to="/dashboard" style={{fontSize: 120}}><FaEye/></Link>):(<Login/>)}
         </div>
         
         <h3 className="welcome1">
@@ -27,7 +27,7 @@ function Home(){
         </p>
         <p>
           Randomeyes brings back the good old days of walking into a shop and not knowing what you might come out with. Our team hand picks top of the line products from reputable suppliers.
-          These products are then presented to you in single file with a randome order. If you like a product you can add it to your cart and purchase it later on. 
+          These products are then presented to you in single file with a random order. If you like a product you can add it to your cart and purchase it later on. 
           If you don't have an interest in the product then you can pass on it and move to the next product in line. 
           You never know what hidden gems you might find on Randomeyes but your enjoyment will always be guaranteed. 
         </p>
