@@ -125,7 +125,7 @@ async function seedProducts(categories){
             image: 'volleyballnet.jpg'
         },
         {
-            name: 'Tennis Rackey',
+            name: 'Tennis Racket',
             description: 'Roger Federers Wilson racket and summer days will be one of the best decisions for the season. Its on sale.',
             category: categories[6]._id,
             price: 87.99,
@@ -172,9 +172,49 @@ async function seedProducts(categories){
             category: categories[3]._id,
             price: 14.99,
             image: 'spoons.jpg'
+        },
+        {
+            name: 'Paint Brush',
+            description: 'The dream of an artist. This paint brush will enable you to bring your artistic visions to life.',
+            category: categories[8]._id,
+            price: 12.99,
+            image: 'paintbrush.jpg'
+        },
+        {
+            name: 'Art Print',
+            description: 'A gorgeous print of Japan. This will look great in your living room!',
+            category: categories[8]._id,
+            price: 24.99,
+            image: 'artprint.jpg'
+        },
+        {
+            name: 'Soccer Ball',
+            description: 'Modern soccer ball used in professional competition. Grip and durability you can only dream of.',
+            category: categories[6]._id,
+            price: 39.99,
+            image: 'soccerball.jpg'
+        },
+        {
+            name: 'Cast-iron Pan',
+            description: 'This pan is heavy! Being made out of cast iron is a big responsibility. It will cook anything!',
+            category: categories[4]._id,
+            price: 81.99,
+            image: 'pan.jpg'
+        },
+        {
+            name: 'Toaster',
+            description: 'Toast your bread and bagels with this aluminum toaster. It is fully programmable and will ensure your bread is cooked to perfection',
+            category: categories[4]._id,
+            price: 119.99,
+            image: 'toaster.jpg'
+        },
+        {
+            name: 'Coffee Beans',
+            description: 'Roasted beans from South America. They are fresh and tasty. Sure to make your coffee a delight.',
+            category: categories[4]._id,
+            price: 8.99,
+            image: 'coffeebeans.jpg'
         }
-
-        //add more products here, place image files in client/src/assets/images/Product Images. I used unsplash and downloaded low res pics.
     ]);
 
     return products;

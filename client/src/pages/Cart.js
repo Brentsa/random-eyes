@@ -48,9 +48,6 @@ const Cart = () => {
     const productIds = [];
 
     cart.forEach(item => {
-        // for(let i = 0; i < item.purchaseQuantity; i++){
-        //     productIds.push(item._id);
-        // }
         productIds.push(item._id);
     })
 
@@ -77,6 +74,7 @@ const Cart = () => {
           <>
             <span className={classes.backgroundPurple}><h2>Subtotal: ${calculateSubtotal(cart)}</h2></span>
             <Button variant="contained" onClick={submitCheckout}>Checkout</Button>
+            <button onClick={submitCheckout}>Checkout</button>
             <Button variant="contained" onClick={clearCart}>Clear Cart</Button>
           </>
           ) : (
