@@ -2,7 +2,7 @@ import React from 'react';
 import Login from '../components/Login';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth'
-import { GiBoltEye } from "react-icons/gi"
+import { FaEye } from "react-icons/fa"
 
 function Home(){
   return (
@@ -13,7 +13,7 @@ function Home(){
           {Auth.loggedIn() ? (<p>Click the eye below to start shopping!</p>):(<p>Create an account or log in below to start shopping!</p>)}
         </div>
         <div className="login-home">
-          {Auth.loggedIn() ? (<Link to="/dashboard" style={{fontSize: 120}}><GiBoltEye/></Link>):(<Login/>)}
+          {Auth.loggedIn() ? (<Link to="/dashboard" style={{fontSize: 120}}><FaEye/></Link>):(<Login/>)}
         </div>
         
         <h3 className="welcome1">
