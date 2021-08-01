@@ -1,5 +1,5 @@
 import React from 'react';
-import eyes from '../../assets/images/random2.png'
+import eyes from '../../assets/images/Product Images/AdobeStock_314558730.png@1.png'
 import { Link } from 'react-router-dom';
 
 const Logo = () => {

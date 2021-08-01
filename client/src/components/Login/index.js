@@ -36,7 +36,7 @@ const Login = () => {
   return (
     <div className="form-container">
       {/* <h4>Login</h4> */}
-        <form onSubmit={handleFormSubmit} >
+        <form onSubmit={handleFormSubmit} className="login-form">
           <input className="log-in-in-put"
             placeholder='Your email'
             name='email'
@@ -56,8 +56,9 @@ const Login = () => {
           <button type='submit' id="log-in-in-put-submit">
             Submit
           </button>
-          {error && <div>Login failed</div>}
+          
         </form>
+        {error && <div>Login failed</div>}
       </div>
   );
 };
