@@ -4,13 +4,11 @@ import Logo from '../Logo';
 
 const Header = () => {
   return (
-    <header>
-      <div className="header-title">
+    <header className="header-title">
         <Logo/>
-          <div className="menu-item">
-            <AuthButtons />  
-          </div>   
-      </div>
+        <div className="menu-item">
+          <AuthButtons />  
+        </div> 
     </header>
   );
 };

@@ -55,8 +55,8 @@ export default function AddToCartModal({addToCart, productName}) {
   );
 
   return (
-    <div>
-      <Button size="large" variant="outlined" color="primary" startIcon={<AddShoppingCartIcon/>} onClick={handleOpen}>
+    <>
+      <Button style={{margin: "10px"}} className="product-button" size="large" variant="outlined" color="primary" startIcon={<AddShoppingCartIcon/>} onClick={handleOpen}>
         Add Product to Cart
       </Button>
       <Modal
@@ -67,6 +67,6 @@ export default function AddToCartModal({addToCart, productName}) {
       >
         {body}
       </Modal>
-    </div>
+    </>
   );
 }

@@ -17,7 +17,6 @@ const AuthButtons = () => {
 
   return (
     <nav >
-        
         {Auth.loggedIn() ? (
           <>
             <Link to="/dashboard"><FaEye/></Link>
@@ -25,7 +24,7 @@ const AuthButtons = () => {
             <Link to="/" onClick={logout}><FiLogOut /></Link>
           </>
         ) : (
-          <div className="welcome">
+          <div className="sign-up-button">
           <>
             <Link to="/signup" id="create-account"><FaUserPlus/>Signup</Link>
           </>

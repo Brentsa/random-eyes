@@ -1,6 +1,5 @@
 import React from 'react';
 //Material UI imports
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -15,25 +14,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { set_current_product } from '../../redux/features/productSlice';
 import { add_to_cart } from '../../redux/features/cartSlice';
 
-//custom styles that can be set in JS for Material-UI
-const useStyles = makeStyles({
-  root: {
-    width: 800
-  },
-  media: {
-    maxWidth: "100%",
-    height: 600,
-    borderRadius: 6
-  },
-  padding: {
-    padding: 10,
-  }
-});
+
 
 //Product Card component
 function ProductCard(){
-    //use the custom css class styles
-    const classes = useStyles();
 
     //define redux state management
     const dispatch = useDispatch();
@@ -71,11 +55,11 @@ function ProductCard(){
     }
 
     return (
-        <Card className={classes.root}>
+        <Card className="product-card">
 
-            <div className={classes.padding}>
+            <div className="padding10">
                 <CardMedia
-                    className={classes.media}
+                    className="product-card-img"
                     image={require(`../../assets/images/Product Images/${currentProduct.image}`).default}
                     title={currentProduct.name}
                 />
@@ -99,14 +83,11 @@ function ProductCard(){
                 direction="row"
                 justifyContent="space-around"
                 alignItems="center"
-                className={classes.padding}
+                className="padding10"
             >
-                <Button size="large" variant="outlined" color="primary" startIcon={<BackspaceIcon/>} onClick={loadNewProduct}>
+                <Button style={{margin: "10px"}} className="product-button" size="large" variant="outlined" color="primary" startIcon={<BackspaceIcon/>} onClick={loadNewProduct}>
                     Show New Product
                 </Button>
-                {/* <Button size="large" variant="outlined" color="primary" startIcon={<AddShoppingCartIcon/>} onClick={addToCart}>
-                    Add Product to Cart
-                </Button> */}
                 <AddToCartModal addToCart={addToCart} productName={currentProduct.name}/>
             </Grid>
             
