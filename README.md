@@ -6,7 +6,7 @@ Randomeyes is a contemporary MERN application that blends aspects of e-commerce 
 Project by: Sean Brent, Swan Pham, Peter Wang, Danyal Khanzada
 
 Github Repository Link: https://github.com/Brentsa/random-eyes<br> 
-Live Page Url: <br>
+Live Page Url: https://randomeyes.herokuapp.com/<br>
 
 ## Table of Contents
 * [Usage](#usage)
