@@ -57,7 +57,7 @@ function Dashboard(){
 
     return (
         <div className="container">
-            <div className={`${classes.root} ${classes.backgroundPurple}`}>
+            <div className="dashboard-title">
                 <Typography variant="h4" component="h4" >
                     Welcome To Your Dashboard {Auth.getProfile().data.username}!
                 </Typography>

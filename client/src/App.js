@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -47,6 +48,7 @@ function App() {
               <Route exact path="/cancel" component={Cancel} />
             </Switch> 
           </main>
+          <Footer/>
         </div>
       </Router>
     </ApolloProvider>

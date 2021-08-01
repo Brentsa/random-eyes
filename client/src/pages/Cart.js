@@ -76,16 +76,16 @@ const Cart = () => {
     {
       Auth.loggedIn() ? (
       <>
-        <h1 className={`cart-user ${classes.backgroundPurple}`}>Welcome to your Cart {Auth.getProfile().data.username}</h1>
+        <h1 className={`cart-user dashboard-title`}>Welcome to your Cart {Auth.getProfile().data.username}</h1>
         <div className="cart-buttons">
           {cart.length ? (
             <>
-              <span className={classes.backgroundPurple}><h2>Subtotal: ${calculateSubtotal(cart)}</h2></span>
+              <span className="cart-element"><h2>Subtotal: <span>${calculateSubtotal(cart)}</span></h2></span>
               <Button variant="contained" onClick={submitCheckout}>Checkout</Button>
               <Button variant="contained" onClick={clearCart}>Clear Cart</Button>
             </>
             ) : (
-              <h2 className={classes.backgroundPurple}>There are no items in your cart!</h2>
+              <h2 className="cart-element">There are no items in your cart!</h2>
             )}
         </div>
         <ul className="cart-list">
