@@ -3,7 +3,6 @@ import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 //Material UI imports
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import ProductCard from '../components/ProductCard';
 import Grid from '@material-ui/core/Grid';
@@ -56,22 +55,20 @@ function Dashboard(){
     }
 
     return (
-        <div className="container">
-            <div className="dashboard-title">
-                <Typography variant="h4" component="h4" >
-                    Welcome To Your Dashboard {Auth.getProfile().data.username}!
-                </Typography>
+        <>
+            <h1 className={`cart-user dashboard-title`}> Welcome To Your Dashboard {Auth.getProfile().data.username}!</h1>
+            <div className="container">
+                <Grid
+                    container
+                    direction="row"
+                    justifyContent="space-around"
+                    alignItems="center"
+                    className={classes.padding}
+                >
+                    <ProductCard/>
+                </Grid>
             </div>
-            <Grid
-                container
-                direction="row"
-                justifyContent="space-around"
-                alignItems="center"
-                className={classes.padding}
-            >
-                <ProductCard/>
-            </Grid>
-        </div>
+        </>
     );
 };
 

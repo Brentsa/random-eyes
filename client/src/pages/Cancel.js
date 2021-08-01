@@ -11,7 +11,7 @@ function Cancel(){
             <div>
                 <h1>Order failed!</h1>
                 <h2>Thank you for attempting to purchase!</h2>
-                <h2>Your order unfortunately did not go through, you will be redirected to the dashboard</h2>
+                <h2>Your order unfortunately did not go through, you will be redirected to the dashboard in 5 sec...</h2>
             </div>
         </div>
     );

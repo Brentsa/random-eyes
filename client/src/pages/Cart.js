@@ -6,7 +6,6 @@ import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../utils/queries';
 
 //Material UI imports
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 //******************* REDUX CONTENT
@@ -15,18 +14,7 @@ import { clear_cart } from '../redux/features/cartSlice';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
-//custom styles that can be set in JS for Material-UI
-const useStyles = makeStyles({
-  backgroundPurple: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #800080 90%)',
-      padding: 10,
-      marginBottom: 10
-  }
-});
-
 const Cart = () => {
-
-  const classes = useStyles();
 
   //define redux state management
   const dispatch = useDispatch();
@@ -76,13 +64,13 @@ const Cart = () => {
     {
       Auth.loggedIn() ? (
       <>
-        <h1 className={`cart-user dashboard-title`}>Welcome to your Cart {Auth.getProfile().data.username}</h1>
+        <h1 className="cart-user dashboard-title">Welcome to your Cart {Auth.getProfile().data.username}</h1>
         <div className="cart-buttons">
           {cart.length ? (
             <>
-              <span className="cart-element"><h2>Subtotal: <span>${calculateSubtotal(cart)}</span></h2></span>
-              <Button variant="contained" onClick={submitCheckout}>Checkout</Button>
-              <Button variant="contained" onClick={clearCart}>Clear Cart</Button>
+              <span className="cart-element" style={{margin: "10px 0"}}><h2>Subtotal: <span>${calculateSubtotal(cart)}</span></h2></span>
+              <Button variant="contained" style={{margin: "10px 0"}} onClick={submitCheckout}>Checkout</Button>
+              <Button variant="contained" style={{margin: "10px 0"}} onClick={clearCart}>Clear Cart</Button>
             </>
             ) : (
               <h2 className="cart-element">There are no items in your cart!</h2>
