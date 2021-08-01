@@ -3,9 +3,9 @@
 function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer>
+    <footer className="footer-background">
       
-      <h2><span>&copy;{year} Team 2</span></h2>
+      <h2><span>&copy;{year} Sean, Peter, Danyal, Swan </span></h2>
     </footer>
   );
 }

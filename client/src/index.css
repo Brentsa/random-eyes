@@ -336,7 +336,7 @@ p {
 
 #home-info{
   padding: 0px 20px 100px;
-  background-color: rgba(122, 122, 109, 0.8);
+  background-color: rgba(148, 144, 130, 0.8);
   border-radius: 10px;
   opacity: 90%;
 }
@@ -441,4 +441,11 @@ p {
   );
   margin-bottom: 0.5rem;
   border-radius: 20px;
+}
+.footer-background{
+  padding: 20px 20px 20px;
+  background-color: rgb(51, 51, 49);
+  color: white;
+  border-radius: 10px;
+  opacity: 70%;
 }
