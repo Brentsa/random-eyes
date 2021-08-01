@@ -105,7 +105,7 @@ async function seedProducts(categories){
         },
         {
             name: 'Table',
-            description: 'minimalistic table with wire organization ports. It is for someone who does not like clutter',
+            description: 'Minimalistic table with wire organization ports. It is for someone who does not like clutter',
             category: categories[3]._id,
             price: 299.99,
             image: 'table.jpg'
@@ -214,6 +214,13 @@ async function seedProducts(categories){
             category: categories[4]._id,
             price: 8.99,
             image: 'coffeebeans.jpg'
+        },
+        {
+            name: 'Ukulele',
+            description: 'Play your favorite tunes on this Hawaiian instrument. Made from premium wood and string materials',
+            category: categories[8]._id,
+            price: 79.99,
+            image: 'ukulele.jpg'
         }
     ]);
 
