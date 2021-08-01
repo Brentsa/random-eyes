@@ -60,7 +60,6 @@ function ProductCard(){
             <div className="padding10">
                 <CardMedia
                     className="product-card-img"
-                    // image={require(`../../assets/images/Product Images/${currentProduct.image}`).default}
                     image={`/images/${currentProduct.image}`}
                     title={currentProduct.name}
                 />

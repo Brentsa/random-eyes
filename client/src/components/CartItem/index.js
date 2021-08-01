@@ -24,7 +24,6 @@ function CartItem({ item }){
             <span>{ item.name }</span>
         </div>
         <div className="img-container">
-            {/* <img src={ require(`../../assets/images/Product Images/${item.image}`).default} alt={item.name} /> */}
             <img src={`/images/${item.image}`} alt={item.name} />
         </div>
         <div className="item-desc">

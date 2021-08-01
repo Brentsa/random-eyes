@@ -20,13 +20,13 @@ async function startApolloServer(typeDefs, resolvers, context)
 
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, '../client/build')));
+
+        app.get("/service-worker.js", (req, res) => {
+            res.sendFile(path.resolve(__dirname, "../client/build/service-worker.js"));
+        });
     }
 
     server.applyMiddleware({app});
-
-    app.get("/service-worker.js", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "public", "service-worker.js"));
-    });
 
     app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
@@ -38,41 +38,3 @@ async function startApolloServer(typeDefs, resolvers, context)
 }
 
 db.once('open', () => startApolloServer(typeDefs, resolvers, authMiddleware));
-
-
-// const PORT = process.env.PORT || 3001;
-// const app = express();
-// const server = new ApolloServer({
-//   typeDefs,
-//   resolvers,
-//   context: authMiddleware
-// });
-
-// server.start().then(()=>{
-//     server.applyMiddleware({ app });
-// });
-
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-
-// // Serve up static assets
-// app.use('/images', express.static(path.join(__dirname, '../client/images')));
-
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/build')));
-// }
-
-// app.get("/service-worker.js", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "public", "service-worker.js"));
-// });
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
-
-// db.once('open', () => {
-//   app.listen(PORT, () => {
-//     console.log(`API server running on port ${PORT}!`);
-//     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-//   });
-// });
