@@ -164,7 +164,7 @@ main h1{
 }
 
 body {
-  background-image: url("../src/assets/images/newbackground.jpeg");
+  background-image: url("../src/assets/images/homebackground.jpg@1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
