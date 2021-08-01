@@ -10,7 +10,8 @@ async function seedCategories(){
         {name: 'Kitchen'},
         {name: 'Bathroom Supplies'},
         {name: 'Athletics'},
-        {name: 'Entertainment'}
+        {name: 'Entertainment'},
+        {name: 'Art'}
     ]);
 
     return categories;
@@ -63,48 +64,48 @@ async function seedProducts(categories){
         {
             name: 'Shoes',
             description: 'Modern comfort meets retro style — this men’s Nike Air Max has everything you need in your shoe rotation. The upper provides durable support and a premium look while the extra cushioning in the collar gives extra comfort where you need it the most.',
-            category: categories[3]._id,
+            category: categories[2]._id,
             price: 249.99,
             image: 'airmax.jpg'
         },
         {
             name: 'COD Controller',
             description: 'Control your firearm with this controller',
-            category: categories[3]._id,
-            price: 150.00,
+            category: categories[1]._id,
+            price: 150.99,
             image: 'codcontroller.jpg'
         },
         {
-            name: 'Eiffel tower',
-            description: 'take your better half to Paris',
+            name: 'Eiffel Tower Tour',
+            description: 'Take your better half to Paris on a beautiful tour of the Eiffel tower.',
             category: categories[7]._id,
-            price: 850.00,
+            price: 850.99,
             image: 'eiffeltower.jpg'
         },
         {
             name: 'Headphones',
             description: 'Something you need for avoiding daily nuisance',
             category: categories[0]._id,
-            price: 75.00,
+            price: 75.99,
             image: 'headphones.jpg'
         },
         {
             name: 'Lights',
             description: 'Beautiful ceiling lights for better ambience',
             category: categories[3]._id,
-            price: 50.00,
+            price: 50.99,
             image: 'lights.jpg'
         },
         {
             name: 'Statue',
             description: 'Put his face in your house to conquer your own house',
             category: categories[3]._id,
-            price: 65.00,
+            price: 65.99,
             image: 'statue.jpg'
         },
         {
             name: 'Table',
-            description: 'minimilistic table with wire organization ports. It is for someone who does not like clutter',
+            description: 'minimalistic table with wire organization ports. It is for someone who does not like clutter',
             category: categories[3]._id,
             price: 299.99,
             image: 'table.jpg'
@@ -124,10 +125,10 @@ async function seedProducts(categories){
             image: 'volleyballnet.jpg'
         },
         {
-            name: 'Tennis Rackey',
+            name: 'Tennis Racket',
             description: 'Roger Federers Wilson racket and summer days will be one of the best decisions for the season. Its on sale.',
             category: categories[6]._id,
-            price: 87.00,
+            price: 87.99,
             image: 'tennisracket.jpg'
         },
         {
@@ -144,10 +145,76 @@ async function seedProducts(categories){
             price: 899.99,
             image: 'edhenmilanoshoes.jpg'
         },
-
-        
-
-        //add more products here, place image files in client/src/assets/images/Product Images. I used unsplash and downloaded low res pics.
+        {
+            name: 'Canvas',
+            description: 'Canvas perfect for any type of paint. Bring your artwork to life.',
+            category: categories[8]._id,
+            price: 39.99,
+            image: 'canvas.jpg'
+        },
+        {
+            name: 'Canvas',
+            description: 'Canvas perfect for any type of paint. Bring your artwork to life.',
+            category: categories[8]._id,
+            price: 39.99,
+            image: 'canvas.jpg'
+        },
+        {
+            name: 'Pillow',
+            description: 'So comfy, you will sleep forever with this plush and comfortable pillow.',
+            category: categories[3]._id,
+            price: 49.99,
+            image: 'pillow.jpg'
+        },
+        {
+            name: 'Spoon Set',
+            description: 'Use these to eat soup and other fluid-like foods. They are easy to clean too!',
+            category: categories[3]._id,
+            price: 14.99,
+            image: 'spoons.jpg'
+        },
+        {
+            name: 'Paint Brush',
+            description: 'The dream of an artist. This paint brush will enable you to bring your artistic visions to life.',
+            category: categories[8]._id,
+            price: 12.99,
+            image: 'paintbrush.jpg'
+        },
+        {
+            name: 'Art Print',
+            description: 'A gorgeous print of Japan. This will look great in your living room!',
+            category: categories[8]._id,
+            price: 24.99,
+            image: 'artprint.jpg'
+        },
+        {
+            name: 'Soccer Ball',
+            description: 'Modern soccer ball used in professional competition. Grip and durability you can only dream of.',
+            category: categories[6]._id,
+            price: 39.99,
+            image: 'soccerball.jpg'
+        },
+        {
+            name: 'Cast-iron Pan',
+            description: 'This pan is heavy! Being made out of cast iron is a big responsibility. It will cook anything!',
+            category: categories[4]._id,
+            price: 81.99,
+            image: 'pan.jpg'
+        },
+        {
+            name: 'Toaster',
+            description: 'Toast your bread and bagels with this aluminum toaster. It is fully programmable and will ensure your bread is cooked to perfection',
+            category: categories[4]._id,
+            price: 119.99,
+            image: 'Toaster.jpg'
+        },
+        {
+            name: 'Coffee Beans',
+            description: 'Roasted beans from South America. They are fresh and tasty. Sure to make your coffee a delight.',
+            category: categories[4]._id,
+            price: 8.99,
+            image: 'coffeebeans.jpg'
+        }
     ]);
 
     return products;

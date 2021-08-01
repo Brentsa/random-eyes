@@ -1,4 +1,9 @@
 import React from 'react';
+
+//Material UI imports
+//import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 //******************* REDUX CONTENT
 import { useDispatch } from 'react-redux';
 import {remove_from_cart} from '../../redux/features/cartSlice'
@@ -21,9 +26,12 @@ function CartItem({ item }){
         <div className="item-desc">
             <span>{ item.name }</span>
             <span>{ item.description }</span>
+            
         </div>
-        <div className="item-price">${ item.price }</div>
-        <button onClick={removeFromCart}>Remove</button>
+        <div className="item-price">
+          ${ item.price }
+          <Button variant="contained" onClick={removeFromCart}>Remove</Button>
+        </div>
     </li>
   );
 };

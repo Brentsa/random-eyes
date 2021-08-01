@@ -18,7 +18,7 @@ const useStyles = makeStyles({
       maxWidth: 1000,
     },
     backgroundPurple: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #800080 90%)',
         padding: 10,
         marginBottom: 10
     }
@@ -47,7 +47,7 @@ function Dashboard(){
 
     //if the user isnt logged in then they cannot view the products
     if(!Auth.loggedIn()){
-        return <h1>Please login to begin viewing products!</h1>
+        return <h1 id="home-info">Please login to begin viewing products!</h1>
     }
 
     //if the products are loading from the backend then show loading...
@@ -58,7 +58,7 @@ function Dashboard(){
     return (
         <div className="container">
             <div className={`${classes.root} ${classes.backgroundPurple}`}>
-                <Typography variant="h2" component="h2" >
+                <Typography variant="h4" component="h4" >
                     Welcome To Your Dashboard {Auth.getProfile().data.username}!
                 </Typography>
             </div>

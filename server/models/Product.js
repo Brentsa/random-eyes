@@ -21,8 +21,7 @@ const productSchema = new Schema({
     price: {
         type: Number,
         required: true,
-        trim: true,
-        min: 0.01
+        min: 0.99
     },
     image: {
         type: String,
