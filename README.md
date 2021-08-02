@@ -26,7 +26,7 @@ Website Screenshot:<br>
 Sean Brent - [Brentsa](https://github.com/Brentsa) <br>
 Swan Pham - [swanpham]() <br>
 Peter Wang - [peterw712]() <br>
-Danyal Khanzada - [DanyalKhanzada]() <br>
+Danyal Khanzada - [DanyalKhanzada](https://github.com/DanyalKhanzada) <br>
 
 ## License
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/) <br>
@@ -39,4 +39,4 @@ Sean Brent, Swan Pham, Peter Wang, or Danyal Khanzada
 [Sean Brent](https://github.com/Brentsa) - Email: seanbrent5@live.ca <br>
 [Swan Pham]() - Email: swan@nailsrus.ca <br>
 [Peter Wang]() - Email: peterw712@outlook.com <br>
-[Danyal Khanzada]() - Email: 
+[Danyal Khanzada]() - Email: danyalkhanzada89@gmail.com <br>
