@@ -38,5 +38,5 @@ Sean Brent, Swan Pham, Peter Wang, or Danyal Khanzada
 
 [Sean Brent](https://github.com/Brentsa) - Email: seanbrent5@live.ca <br>
 [Swan Pham]() - Email: swan@nailsrus.ca <br>
-[Peter Wang]() - Email: <br>
+[Peter Wang]() - Email: peterw712@outlook.com <br>
 [Danyal Khanzada]() - Email: 
