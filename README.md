@@ -37,6 +37,6 @@ If you have questions or would like to contact for other reasons, please contact
 Sean Brent, Swan Pham, Peter Wang, or Danyal Khanzada  
 
 [Sean Brent](https://github.com/Brentsa) - Email: seanbrent5@live.ca <br>
-[Swan Pham]() - Email:  <br>
+[Swan Pham]() - Email: swan@nailsrus.ca <br>
 [Peter Wang]() - Email: <br>
 [Danyal Khanzada]() - Email: 
