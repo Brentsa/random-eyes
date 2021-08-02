@@ -10,7 +10,7 @@ Live Page Url: https://randomeyes.herokuapp.com/<br>
 
 ## Table of Contents
 * [Usage](#usage)
-* [Contributon](#credits)
+* [Contributon](#contribution)
 * [License](#license)
 * [Questions](#questions)
 
@@ -34,7 +34,7 @@ Danyal Khanzada - [DanyalKhanzada]() <br>
 
 ## Questions
 If you have questions or would like to contact for other reasons, please contact:
-Sean Brent, Swan Pham, Peter Wang, Danyal Khanzada  
+Sean Brent, Swan Pham, Peter Wang, or Danyal Khanzada  
 
 [Sean Brent](https://github.com/Brentsa) - Email: seanbrent5@live.ca <br>
 [Swan Pham]() - Email:  <br>
