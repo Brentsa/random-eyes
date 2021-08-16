@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const addressSchema = require('./Address');
 const bcrypt = require('bcrypt');
 
 
@@ -19,11 +20,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  address: {
-    type: String, 
-    required: true,
-    trim: true
-  }
+  // address: {
+  //   type: String, 
+  //   required: true,
+  //   trim: true
+  // }
+  address: addressSchema
   // orders: [Order.schema]
 });
 

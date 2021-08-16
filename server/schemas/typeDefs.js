@@ -21,11 +21,21 @@ const typeDefs = gql`
     products: [Product]
   }
 
+  type Address {
+    _id: ID
+    streetNumber: Int
+    streetName: String
+    city: String
+    province: String
+    country: String
+    postalCode: String
+  }
+
   type User {
     _id: ID
     username: String
     email: String
-    address: String
+    address: Address
   }
 
   type Checkout {
@@ -35,6 +45,15 @@ const typeDefs = gql`
   type Auth {
     token: ID
     user: User
+  }
+
+  input AddressContent {
+    streetNumber: Int
+    streetName: String
+    city: String
+    province: String
+    country: String
+    postalCode: String
   }
 
   type Query {
@@ -49,7 +68,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, address: String!): Auth
+    addUser(username: String!, email: String!, password: String!, address: AddressContent!): Auth
     updateUser(username: String, email: String, password: String, address: String!): User
     updateProduct(_id: ID!, quantity: Int!): Product
     addOrder(products: [ID]!): Order
