@@ -5,14 +5,19 @@ import Auth from '../utils/auth';
 
 const Signup = () => {
 
-  const [formState, setFormState] = useState({ username: '', email: '', address: '', password: '' });
+  const [formState, setFormState] = useState({ username: '', email: '', address:{ streetNumber: '', streetName: '', city: '', province: '', country: '', postalCode: ''} , password: '' });
   const [addUser, { error }] = useMutation(ADD_USER);
 
   // update state based on form input changes
   const handleChange = async event => {
-    const { name, value } = event.target;
+    const { name, value, id } = event.target;
 
-    await setFormState({ ...formState, [name]: value });
+    if(id === "address"){
+      await setFormState({...formState, address: {...formState.address, [name]: value}})
+    }
+    else{
+      await setFormState({ ...formState, [name]: value });
+    }
   };
 
   // submit form
@@ -20,11 +25,9 @@ const Signup = () => {
     event.preventDefault();
     // use try/catch instead of promises to handle errors
 
-    console.log(formState);
-
     try {
       const { data } = await addUser({
-        variables: { ...formState }
+        variables: { ...formState, address: {...formState.address, streetNumber: parseInt(formState.address.streetNumber)} }
       });
 
       Auth.login(data.addUser.token);
@@ -55,11 +58,46 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <input className="sign-up-form"
-                placeholder='Your address'
-                name='address'
-                type='address'
+                placeholder='Your Street Number'
+                type='number'
+                name='streetNumber'
                 id='address'
-                value={formState.address}
+                value={formState.address.streetNumber}
+                onChange={handleChange}
+              />
+              <input className="sign-up-form"
+                placeholder='Your Street Name'
+                name='streetName'
+                id='address'
+                value={formState.address.streetName}
+                onChange={handleChange}
+              />
+              <input className="sign-up-form"
+                placeholder='Your City'
+                name='city'
+                id='address'
+                value={formState.address.city}
+                onChange={handleChange}
+              />
+              <input className="sign-up-form"
+                placeholder='Your Province/State'
+                name='province'
+                id='address'
+                value={formState.address.province}
+                onChange={handleChange}
+              />
+              <input className="sign-up-form"
+                placeholder='Your Country'
+                name='country'
+                id='address'
+                value={formState.address.country}
+                onChange={handleChange}
+              />
+              <input className="sign-up-form"
+                placeholder='Your Postal/Zip Code'
+                name='postalCode'
+                id='address'
+                value={formState.address.postalCode}
                 onChange={handleChange}
               />
               <input className="sign-up-form"

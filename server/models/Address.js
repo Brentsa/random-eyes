@@ -28,13 +28,14 @@ const addressSchema = new Schema({
         type: String,
         required: true,
         trim: true, 
-        minLength: 3
+        enum: ["Canada", "USA"]
     },
     postalCode: {
         type: String,
         required: true,
         trim: true, 
-        minLength: 5
+        minLength: 5,
+        maxLength: 6
     }
 })
 
