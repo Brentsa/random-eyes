@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '25ch',
     },
+    '& .MuiSelect-root': {
+      width: '25ch',
+    },
     borderTop: 'solid 2px black'
   },
   formControl: {
@@ -33,14 +36,19 @@ const useStyles = makeStyles((theme) => ({
   titleSection:{
     marginTop: '20px',
     marginBottom: '8px',
+  },
+  titleSectionMain:{
+    marginTop: '8px',
+    marginBottom: '20px',
   }
 }));
 
-const Signup = () => {
+const Signup = () => 
+{
 
   const classes = useStyles();
-
   const [formState, setFormState] = useState({ username: '', email: '', address:{ streetNumber: '', streetName: '', city: '', province: '', country: '', postalCode: ''} , password: '' });
+  const [validatePassword, setValidatePassword] = useState('');
   const [addUser, { error }] = useMutation(ADD_USER);
 
   // update state based on form input changes
@@ -50,6 +58,9 @@ const Signup = () => {
     if(name in formState.address){
       return await setFormState({...formState, address: {...formState.address, [name]: value}});
     }
+    else if(name === "reenterPassword"){
+      return await setValidatePassword(value);
+    }
     
     return await setFormState({ ...formState, [name]: value });
   };
@@ -57,15 +68,11 @@ const Signup = () => {
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
+
+    if(formState.password !== validatePassword) {return alert('Passwords must match.')}
     // use try/catch instead of promises to handle errors
-
-    console.log(formState);
-
     try {
-      const { data } = await addUser({
-        variables: { ...formState, address: {...formState.address, streetNumber: parseInt(formState.address.streetNumber)} }
-      });
-
+      const {data} = await addUser({variables: { ...formState, address: {...formState.address, streetNumber: parseInt(formState.address.streetNumber)}}});
       Auth.login(data.addUser.token);
     } 
     catch (e) {
@@ -73,197 +80,141 @@ const Signup = () => {
     }
   };
 
-  return (
-        <div id="sign-up-form-cont" className="sign-up-form">
-            <form onSubmit={handleFormSubmit} /*id="sign-up-form"*/ className={classes.root}>
-              {/* <input className="sign-up-form" 
-                placeholder='Your username'
-                name='username'
-                type='username'
-                id='username'
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your Street Number'
-                type='number'
-                name='streetNumber'
-                id='address'
-                value={formState.address.streetNumber}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your Street Name'
-                name='streetName'
-                id='address'
-                value={formState.address.streetName}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your City'
-                name='city'
-                id='address'
-                value={formState.address.city}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your Province/State'
-                name='province'
-                id='address'
-                value={formState.address.province}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your Country'
-                name='country'
-                id='address'
-                value={formState.address.country}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your Postal/Zip Code'
-                name='postalCode'
-                id='address'
-                value={formState.address.postalCode}
-                onChange={handleChange}
-              />
-              <input className="sign-up-form"
-                placeholder='Your password'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              /> */}
+  return (  
+    <section id="sign-up-form-cont" className="sign-up-form">
+      <h2 className={classes.titleSectionMain}>Create an Account</h2>
 
-              <h3 className={classes.titleSection}>Login Details</h3>
-              <div>
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="Username"
-                  name="username"
-                  variant="outlined"
-                  value={formState.username}
-                  onChange={handleChange}
-                />
+      <form onSubmit={handleFormSubmit} className={classes.root}>
+        <h3 className={classes.titleSection}>Login Details</h3>
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Username"
+            name="username"
+            variant="outlined"
+            value={formState.username}
+            onChange={handleChange}
+          />
 
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="Email"
-                  type="email"
-                  name="email"
-                  variant="outlined"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="Password"
-                  type="password"
-                  name="password"
-                  variant="outlined"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <h3 className={classes.titleSection}>Address</h3>
-              <div>
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="Street Number"
-                  name="streetNumber"
-                  variant="outlined"
-                  type="number"
-                  value={formState.address.streetNumber}
-                  onChange={handleChange}
-                />
-
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="Street Name"
-                  name="streetName"
-                  variant="outlined"
-                  value={formState.address.streetName}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div>
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="City"
-                  name="city"
-                  variant="outlined"
-                  value={formState.address.city}
-                  onChange={handleChange}
-                />
-
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="Province/State"
-                  name="province"
-                  variant="outlined"
-                  value={formState.address.province}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div>
-                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    name="country"
-                    value={formState.address.country}
-                    onChange={handleChange}
-                    label="country"
-                  >
-                    {/* <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem> */}
-                    <MenuItem value="Canada">Canada</MenuItem>
-                    <MenuItem value="USA">USA</MenuItem>
-                  </Select>
-                </FormControl>
-
-                <TextField
-                  required
-                  id="outlined-required"
-                  label="Postal/Zip Code"
-                  name="postalCode"
-                  variant="outlined"
-                  value={formState.address.postalCode}
-                  onChange={handleChange}
-                />
-
-              </div>
-              
-              <div className={classes.submitSection}>
-                <button type='submit' id="form-submit">
-                  Submit
-                </button>
-                {error && <div>Sign up failed</div>}
-              </div>
-            </form>
+          <TextField
+            required
+            id="outlined-required"
+            label="Email"
+            type="email"
+            name="email"
+            variant="outlined"
+            value={formState.email}
+            onChange={handleChange}
+          />
         </div>
+
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Password"
+            type="password"
+            name="password"
+            variant="outlined"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <TextField
+            required
+            id="outlined-required"
+            label="Re-enter Password"
+            type="password"
+            name="reenterPassword"
+            variant="outlined"
+            value={validatePassword}
+            onChange={handleChange}
+          />
+        </div>
+
+        <h3 className={classes.titleSection}>Address</h3>
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="Street Number"
+            name="streetNumber"
+            variant="outlined"
+            type="number"
+            value={formState.address.streetNumber}
+            onChange={handleChange}
+          />
+
+          <TextField
+            required
+            id="outlined-required"
+            label="Street Name"
+            name="streetName"
+            variant="outlined"
+            value={formState.address.streetName}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <TextField
+            required
+            id="outlined-required"
+            label="City"
+            name="city"
+            variant="outlined"
+            value={formState.address.city}
+            onChange={handleChange}
+          />
+
+          <TextField
+            required
+            id="outlined-required"
+            label="Province/State"
+            name="province"
+            variant="outlined"
+            value={formState.address.province}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              name="country"
+              value={formState.address.country}
+              onChange={handleChange}
+              label="country"
+            >
+              <MenuItem value="Canada">Canada</MenuItem>
+              <MenuItem value="USA">USA</MenuItem>
+            </Select>
+          </FormControl>
+
+          <TextField
+            required
+            id="outlined-required"
+            label="Postal/Zip Code"
+            name="postalCode"
+            variant="outlined"
+            value={formState.address.postalCode}
+            onChange={handleChange}
+          />
+        </div>
+        
+        <div className={classes.submitSection}>
+          <button type='submit' id="form-submit">
+            Submit
+          </button>
+          {error && <div>Sign up failed</div>}
+        </div>
+
+      </form>
+    </section>
+    
   );
 };
 
